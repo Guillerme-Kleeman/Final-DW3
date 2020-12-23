@@ -29,7 +29,7 @@ class RubrosController < ApplicationController
 
     respond_to do |format|
       if @rubro.save
-        format.html { redirect_to @rubro, notice: 'Rubro was successfully created.' }
+        format.html { redirect_to rubros_path, notice: 'Rubro creado.' }
         format.json { render :show, status: :created, location: @rubro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class RubrosController < ApplicationController
   def update
     respond_to do |format|
       if @rubro.update(rubro_params)
-        format.html { redirect_to @rubro, notice: 'Rubro was successfully updated.' }
+        format.html { redirect_to rubros_path, notice: 'Rubro actualizado.' }
         format.json { render :show, status: :ok, location: @rubro }
       else
         format.html { render :edit }
@@ -55,13 +55,14 @@ class RubrosController < ApplicationController
   # DELETE /rubros/1
   # DELETE /rubros/1.json
   def destroy
-    if @rubro.destroy
-      respond_to do |format|
-        format.html { redirect_to rubros_url, notice: 'Rubro was successfully destroyed.' }
-        format.json { head :no_content }
-      end
-    else
-      redirect_to rubros_url, notice: "No se puede eliminar este elemento"
+    begin
+    @rubro.destroy 
+    respond_to do |format|
+      format.html { redirect_to rubros_url, notice: 'Rubro eliminado.' }
+      format.json { head :no_content }
+    end
+    rescue Exception
+      redirect_to rubros_url
     end
   end
 
