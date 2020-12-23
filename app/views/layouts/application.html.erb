@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Final - DW3</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      a:hover{
+        background-color: #007bff;
+      }
+    </style>
+  </head>
+
+  <body class="m-0">
+  <div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="ml-3 text-white"><%= link_to "Productos", productos_path, :class => "text-white" %></li>
+                      <li class="ml-3 text-white"><%= link_to "Marcas", marcas_path, :class => "text-white" %></li>
+                      <li class="ml-3"><%= link_to "Rubros", rubros_path, :class => "text-white" %></li>
+                    </ul>
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                       <% if usuario_signed_in? %>
+                       <li>
+                            <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <%= current_usuario.email %>
+                            </a>
+                                <div class="dropdown-menu dropdown-menu-right bg-info text-white" aria-labelledby="navbarDropdown">
+                                    <%= link_to "Cerrar sesión", destroy_usuario_session_path, method: :delete, :class => "dropdown-item bg-info text-white" %> </li>
+                                </div>
+                            </li>
+                          </li>
+                        <% else %>
+                        <li>
+                          <%= link_to "Iniciar sesión", new_usuario_session_path, :class => "text-white" %> </li>
+                        </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
+    <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<%= form_with(model: producto, local: true, url: ruta) do |form| %>
+
+  <%= form.hidden_field :id %>
+
+  <div class="field">
+    <%= form.label :marca_id, "Marca" %>
+    <%= form.collection_select :marca_id, @marcas, :id, :nombre, {}, { :class => 'form-control' } %>
+  </div>
+
+  <div class="field">
+   <%= form.label :rubro_id, "Rubro" %>
+    <%= form.collection_select :rubro_id, @rubros, :id, :nombre, {}, { :class => 'form-control' } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, :class => 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantidad_minima %>
+    <%= form.number_field :cantidad_minima, :class => 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantidad_actual %>
+    <%= form.number_field :cantidad_actual, :class => 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio %>
+    <%= form.number_field :precio, step: 0.01, :class => 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :activo %>
+    <%= form.check_box :activo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Guardar", :class => "btn btn-primary" %>
+  </div>
+<% end %>

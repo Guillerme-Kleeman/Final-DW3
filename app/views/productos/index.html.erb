@@ -1,0 +1,35 @@
+<div class="container p-5">
+
+<h1>Productos</h1>
+
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cantidad Mínima</th>
+      <th>Cantidad Actual</th>
+      <th>Precio</th>
+      <th>Marca</th>
+      <th>Rubro</th>
+      <th>Activo</th>
+      <th colspan="2"><%= link_to 'Nuevo producto', new_producto_path, :class=>"btn btn-info text-white" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @productos.each do |producto| %>
+      <tr>
+        <td><%= producto.nombre %></td>
+        <td><%= producto.cantidad_minima %></td>
+        <td><%= producto.cantidad_actual %></td>
+        <td><%= producto.precio %></td>
+        <td><%= producto.marca.nombre %></td>
+        <td><%= producto.rubro.nombre %></td>
+        <td class="text-light <%= producto.activo ? "bg-success" : "bg-danger" %>"><%= producto.activo ? "SI" : "NO" %></td>
+        <td><%= link_to 'Editar', edit_producto_path(producto) %></td>
+        <td><%= link_to 'Eliminar', destroy_producto_path(producto), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
