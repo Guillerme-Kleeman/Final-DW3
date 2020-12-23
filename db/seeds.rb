@@ -18,6 +18,6 @@ Rubro.create([ { nombre: 'Verduras', perecedero: true },
 
 Producto.create([   { nombre: 'Mirinda Naranja', cantidad_minima: 6, cantidad_actual: 10, precio: 5000, marca_id: '1', rubro_id: '2', activo: true },
                     { nombre: 'Doritos 3D Crunch', cantidad_minima: 0, cantidad_actual: 100, precio: 11000, marca_id: 2, rubro_id: '3', activo: true },
-                    { nombre: 'NVIDIA GeForce RTX 3080', cantidad_minima: 1, cantidad_actual: 0, precio: 9000000, marca_id: 3, rubro_id: 4, activo: false }
+                    { nombre: 'NVIDIA GeForce RTX 3080', cantidad_minima: 1, cantidad_actual: 0, precio: 9000000, marca_id: 3, rubro_id: 4, activo: false },
                     { nombre: '7-Up', cantidad_minima: 6, cantidad_actual: 10, precio: 5000, marca_id: '1', rubro_id: '2', activo: true },
                     { nombre: 'Doritos 4D Crunch', cantidad_minima: 0, cantidad_actual: 100, precio: 11000, marca_id: 2, rubro_id: '3', activo: true }])

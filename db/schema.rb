@@ -23,13 +23,13 @@ ActiveRecord::Schema.define(version: 2020_12_22_224126) do
   end
 
   create_table "productos", force: :cascade do |t|
+    t.string "nombre"
     t.integer "cantidad_minima"
     t.integer "cantidad_actual"
-    t.integer "precio"
+    t.float "precio"
     t.bigint "marca_id"
     t.bigint "rubro_id"
     t.boolean "activo"
-    t.string "nombre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
